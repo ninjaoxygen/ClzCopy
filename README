@@ -1,0 +1,35 @@
+ClzCopy v1.0
+Copyright (C) 2014 Chris Poole - chris@hackernet.co.uk
+
+This tool watches a selected portion of the directory tree for updated CLZ files.
+When changes are detected in CLZ files, they are copied to the top level selected folder.
+
+In the example filesystem below, select C:\SomeProject as the folder, then whenever the files
+bin\FtpExampleLibrary.clz and bin\RSSLibrary.clz are updated, they will be copied into the
+C:\SomeProject folder to accompany the usp files, this WILL overwrite the existing clz file.
+
+This is intended to work with the following example directory tree layout, for the example:
+
+C:\SomeProject\
+	mycode.smw
+	FtpExample.usp
+	FtpExampleLibrary.clz
+	Rss.usp
+	RssLibrary.clz
+
+	FtpExampleLibrary\
+		FtpExampleLibrary.sln
+		FtpExampleLibrary.csproj
+		program.cs
+		bin\
+			FtpExampleLibrary.clz
+
+	RssLibrary\
+		RssLibrary.sln
+		RssLibrary\
+			RssLibrary.csproj
+			Rss.cs
+			bin\
+				RssLibrary.clz
+	
+
