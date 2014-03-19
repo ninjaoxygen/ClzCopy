@@ -142,5 +142,28 @@ namespace ClzCopy
                 Log(ex.ToString());
             }
         }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                try
+                {
+                    notifyIcon1.Visible = true;
+                    Hide();
+                }
+                catch (Exception)
+                {
+                    // will not hide if notification icon visible fails, no issues
+                }
+            }
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            notifyIcon1.Visible = false;
+            Show();
+            WindowState = FormWindowState.Normal;
+        }
     }
 }
