@@ -6,6 +6,7 @@ namespace ClzCopy
 {
     static class Program
     {
+        static Mutex mutex;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -13,13 +14,12 @@ namespace ClzCopy
         static void Main()
         {
             string mutex_id = "ClzCopy";
-            using (Mutex mutex = new Mutex(false, mutex_id))
+            mutex = new Mutex(false, mutex_id);
+
+            if (!mutex.WaitOne(0, false))
             {
-                if (!mutex.WaitOne(0, false))
-                {
-                    MessageBox.Show("ClzCopy is already running!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    return;
-                }
+                MessageBox.Show("ClzCopy is already running!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
             }
 
             Application.EnableVisualStyles();
