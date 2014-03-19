@@ -62,7 +62,7 @@ namespace ClzCopy
             // ignore our own copies
             if (Path.GetDirectoryName(path) == Path.GetDirectoryName(textBox1.Text + "\\"))
             {
-                Log("skipping copy to root");
+                //Log("skipping copy to root");
                 return;
             }
 
